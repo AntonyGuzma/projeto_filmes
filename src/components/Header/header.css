@@ -18,7 +18,9 @@ header{
 
 .favoritos{
     cursor: pointer;
-    background-color: aliceblue;
+    background-color: white;
+    font-weight: 500px;
+    border-radius: 5px;
     padding: 5px 14px;
     text-decoration: none;
     color: black;

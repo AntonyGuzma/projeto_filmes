@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Commit Semantico: https://github.com/iuricode/padroes-de-commits
+
 ## Available Scripts
 
 In the project directory, you can run:
