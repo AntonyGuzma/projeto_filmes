@@ -16,3 +16,63 @@ body{
     align-items: center;
     flex-direction: column;
 }
+
+/*Estilização da Pasta ./Pages/Filme*/
+
+.filme-info{
+    margin: 0 auto;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 0 18px;
+}
+
+.filme-info h1{
+    margin: 14px;
+}
+
+.filme-info img{
+    border-radius: 8px;
+    width: 800px;
+    max-width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.filme-info h3{
+    margin-top: 15px;
+}
+
+.filme-info span{
+    margin: 8px 0; 
+}
+
+.area-button button{
+    margin-right: 12px;
+    margin-top: 14px;
+    margin-left: 0;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+
+.area-button a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s;
+}
+
+.area-button button:hover{
+    background-color: brown;
+    color: rgb(255, 255, 255);
+}
+
+.area-button a:hover{
+    color: rgb(255, 255, 255);
+}
