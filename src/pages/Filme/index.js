@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import api from '../../services/api'; 
 
 import '../Filme/filme-info.css';
@@ -7,6 +7,7 @@ import '../Filme/filme-info.css';
 function Filme(){
 
     const {id} = useParams();
+    const navigate = useNavigate();
     const [filme, setFilme] = useState({});
 
     useEffect(()=>{
@@ -23,13 +24,35 @@ function Filme(){
                 setFilme(response.data);
             })
             .catch(()=>{
+                //tratamento para quando a pagina do filme não é encontrada
                 console.error('Filme Não Encontrado');
+                navigate("/",  {replace: true});
+                return;
             })
         }
 
         loadFilme();
+    
+        //dependencia do useEffect
+    }, [navigate, id])
 
-    })
+    function salvarfilme(){
+        const minhaLista = localStorage.getItem("@primefix");
+
+        //json para converter em String 
+        let filmeSalvos = JSON.parse(minhaLista) || [];
+        
+        //função do JS que verifica se na lista existe um item repetido pelo menos
+        const hasfilmes = filmeSalvos.some((filmeSalvo) =>filmeSalvo.id === filme.id) ;
+
+        if(hasfilmes){
+            alert('Esse Filme já está na lista')
+        }else{
+            filmeSalvos.push(filme);
+            localStorage.setItem("@primefix", JSON.stringify(filmeSalvos));
+            alert("Filme Salvo COm Sucesso")
+        }
+    }
 
     return(
         <div className="filme-info">
@@ -42,8 +65,8 @@ function Filme(){
             <strong>Avalicação: {filme.vote_average} / 10</strong>
 
             <div className="area-button">
-                <button>Salvar</button>
-                <button><a href="#">Trailer</a></button>
+                <button onClick={salvarfilme}>Salvar</button>
+                <button><a target="blank" href={`https://youtube.com/results?search_query=${filme.title} trailer`}>Trailer</a></button>
             </div>
         </div>
     )
