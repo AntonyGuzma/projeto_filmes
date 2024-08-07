@@ -18,7 +18,7 @@ function Favoritos(){
 function excluirFilme(id){
     //filtrar todos os filmes da lista 
     let filtroFilmes = filmes.filter((item) =>{
-        return (item.id != id)
+        return (item.id !== id)
     })    
 
     setFilmes(filtroFilmes); 
@@ -32,7 +32,7 @@ function excluirFilme(id){
             <h1>Meus Filmes</h1>
 
             {/* Condição dentro do html para verificar se tem ou não filme na lista */}
-            {filmes.length == 0 && <span>Você não possui nenhum Filme Salvo :(</span>}
+            {filmes.length === 0 && <span>Você não possui nenhum Filme Salvo :(</span>}
 
             <ul>
                 {filmes.map((item) => {

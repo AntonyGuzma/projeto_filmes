@@ -5,8 +5,9 @@
     box-sizing: border-box;
 }
 
-body{
+html,body{
     font-family: sans-serif;
+    height: 100%;
 }
 
 .app{
@@ -77,3 +78,20 @@ body{
 .area-button a:hover{
     color: rgb(255, 255, 255);
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da viewport */
+  }
+  
+  .content {
+    flex: 1; /* Faz com que o conteúdo ocupe todo o espaço disponível */
+  }
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
